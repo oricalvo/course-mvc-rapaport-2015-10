@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div> 
+        <h1>Delete</h1>
+
+        <p>
+            Delete @this.Model.UserName ?
+        </p>
+
+        <form method="post" action="/Contact/Delete/@this.Model.ID">
+            <button>Delete</button>
+        </form>
+    </div>
+</body>
+</html>
