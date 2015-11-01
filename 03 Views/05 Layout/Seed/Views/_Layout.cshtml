@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        @RenderSection("title")
+    </title>
+</head>
+<body>
+    <div class="header">
+        @Html.Action("HelloUser", "Account")
+    </div>
+
+    <div> 
+        @RenderBody()
+    </div>
+
+    <script src="~/jquery.js"></script>
+
+    @RenderSection("scripts", false)
+</body>
+</html>

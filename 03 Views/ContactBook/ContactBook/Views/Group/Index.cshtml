@@ -1,0 +1,37 @@
+﻿@model GroupModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="menu">
+        <a href="#">Add Contact</a>
+        <a href="#">Add Group</a>
+
+        @if (this.Model.ParentID != null)
+        {
+            <a href="/Group/Index/@this.Model.ParentID">Up</a>
+        }
+    </div>
+
+    <ul>
+        @foreach (var item in this.Model.Items)
+        {
+            <li>
+                @if (item.IsGroup)
+                {
+                    <a href="/Group/Index/@item.ID">@item.DisplayName</a>
+                }
+                else
+                {
+                    <span>@item.DisplayName</span>
+                }
+            </li>
+        }
+    </ul>
+</body>
+</html>

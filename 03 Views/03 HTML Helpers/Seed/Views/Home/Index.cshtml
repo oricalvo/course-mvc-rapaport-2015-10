@@ -1,0 +1,31 @@
+﻿@*@model Contact*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @Html.ActionLink("About", "About")
+
+        @using (Html.BeginForm())
+        {
+        }
+
+        @Html.TextBox("password")
+
+        @Html.TextBoxFor(m => m.Name)
+
+        @Html.EditorFor(m => m.Name)
+
+        @Html.DisplayFor(m => m.Name)
+    </div>
+</body>
+</html>
