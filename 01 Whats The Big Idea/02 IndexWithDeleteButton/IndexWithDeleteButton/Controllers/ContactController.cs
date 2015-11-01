@@ -9,8 +9,10 @@ namespace IndexWithDeleteButton.Controllers
     public class ContactController : Controller
     {
         // GET: Contact
-        public ActionResult Index(string firstName, string lastName, int maxAge)
+        public ActionResult Index(int? id)
         {
+            //HttpContext.Request.Cookies
+
             DAL dal = new DAL();
             Contact[] contacts = dal.GetAllContacts();
 

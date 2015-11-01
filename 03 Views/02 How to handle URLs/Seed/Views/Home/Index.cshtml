@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @{
+        string name = "Ori";
+    }
+    <div> 
+        @*@Html.ActionLink("Goto About", "About")*@
+        @*<a href="/Home/About">About</a>*@
+        @*<a href="@Url.Content("~/Home/About")">Goto About</a>*@
+
+        <span>@name.ToString2()</span>
+
+        <a href="@Url.Action("About")">Goto About</a>
+        <a href="~/Home/About">Goto About</a>
+    </div>
+</body>
+</html>

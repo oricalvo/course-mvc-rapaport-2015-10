@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+
+    string userName = "<script>alert('XSS')</script>";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @*<meta name="viewport" content="width=device-width" />
+    <title>Index</title>*@
+</head>
+<body>
+    <div> 
+        @Html.Raw(userName)
+
+        <h1>@System.Reflection.Assembly.GetExecutingAssembly().Location</h1>
+    </div>
+</body>
+</html>
