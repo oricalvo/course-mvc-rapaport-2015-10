@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div ng-controller="HomeCtrl">
+        <span ng-cloak ng-show="flag">{{data}}</span>
+        <button ng-click="run()">Click me</button>
+        <button ng-click="change()">Change DOM</button>
+
+        <span ng-show="blabla">Hidden section</span>
+
+        <ul>
+            <li ng-repeat="contact in ::contacts">
+                <span>{{::contact.name}}</span>
+            </li>
+        </ul>
+
+        <ul>
+            <li ng-repeat="name in names">
+                <span>{{::name}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="HomeCtrl.js"></script>
+</body>
+</html>

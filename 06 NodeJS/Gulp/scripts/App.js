@@ -1,0 +1,7 @@
+function appInit() {
+	
+}
+
+function appRun() {
+	
+}

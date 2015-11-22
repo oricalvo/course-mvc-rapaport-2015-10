@@ -1,0 +1,46 @@
+<html>
+	<body>
+		
+		<ul>
+		</ul>
+		
+		<script src="jquery.js"></script>
+		<script>
+			var contacts = [
+				{id: 1, name: "Ori"},
+				{id: 2, name: "Roni"},
+			];
+			
+			var ul = $("ul");
+			
+			contacts.forEach(function(contact){
+				var li = $("<li />");
+				li.text(contact.name);
+				li.appendTo(ul);
+				
+				var button = $("<button>Delete</button>");
+				li.append(button);
+				
+				li.data("contact", contact);
+				
+				button.click(function() {
+					var li = $(this).closest("li");
+					
+					var contact = li.data("contact");
+					removeById(contact.id);
+					
+					li.remove();
+				});
+			});
+			
+			function removeById(id) {
+				for(var i=0; i<contacts.length; i++) {
+					if(contacts[i].id == id) {
+						contacts.splice(i, 1);
+						return;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

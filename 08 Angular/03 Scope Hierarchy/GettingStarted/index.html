@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <div ng-controller="HomeCtrl as ctrl">
+        {{ctrl.message}}
+
+        <div ng-controller="ChildCtrl as ctrl">
+            {{ctrl.message}}
+        </div>
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="HomeCtrl.js"></script>
+    <script src="ChildCtrl.js"></script>
+</body>
+</html>

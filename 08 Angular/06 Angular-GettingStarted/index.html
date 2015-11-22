@@ -1,0 +1,13 @@
+<html ng-app="MyApp">
+	<body>
+		<ul ng-controller="HomeCtrl">
+			<li ng-repeat="contact in contacts">
+				<span>{{contact.name}}</span>
+				<button ng-click="remove(contact)">Delete</button>
+			</li>
+		</ul>
+		
+		<script src="angular.js"></script>
+		<script src="app.js"></script>		
+	</body>
+</html>

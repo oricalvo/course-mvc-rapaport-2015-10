@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <div ng-controller="HomeCtrl as ctrl">
+        <ul>
+            <li ng-repeat="name in ctrl.names">
+                <span>{{name}}</span>
+            </li>
+        </ul>
+
+        <input ng-model="ctrl.name" /><button ng-click="ctrl.add(ctrl.name)">Add</button>
+        <button></button>
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="HomeCtrl.js"></script>
+</body>
+</html>

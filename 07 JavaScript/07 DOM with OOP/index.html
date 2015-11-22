@@ -1,0 +1,68 @@
+<html>
+	<body>
+		
+		<ul data-class="HomeView">
+		</ul>
+		
+		<script src="jquery.js"></script>
+		<script>
+			var contacts = [
+				{id: 1, name: "Ori"},
+				{id: 2, name: "Roni"},
+			];
+			
+			function HomeView(element) {
+				this.element = element;
+				this.contacts = null;
+			}
+			
+			HomeView.prototype.bind = function(contacts) {
+				this.contacts = contacts;
+				
+				this.updateUI();
+			}
+			
+			HomeView.prototype.updateUI = function() {
+				var me = this;
+				
+				me.element.empty();
+				
+				me.contacts.forEach(function(contact){
+					var li = $("<li />");
+					li.text(contact.name);
+					li.appendTo(me.element);
+					
+					var button = $("<button>Delete</button>");
+					li.append(button);
+					
+					li.data("contact", contact);
+					
+					button.click(function(e) {
+						me.buttonDelete_Click($(e.target));
+					});
+				});
+			}
+				
+			HomeView.prototype.buttonDelete_Click = function(button) {
+				var li = button.closest("li");
+						
+				var contact = li.data("contact");
+				this.removeById(contact.id);
+
+				this.updateUI();
+			}
+			
+			HomeView.prototype.removeById = function(id) {
+				for(var i=0; i<this.contacts.length; i++) {
+					if(this.contacts[i].id == id) {
+						this.contacts.splice(i, 1);
+						return;
+					}
+				}
+			}			
+			
+			//var view = new HomeView($("ul"));						
+			//view.bind(contacts);
+		</script>
+	</body>
+</html>
