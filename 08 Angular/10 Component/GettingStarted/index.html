@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="HomeCtrl">
+        <clock name="clock1" format="format" on-tick="onTick(time)"></clock>
+
+        <clock name="clock2" format="format" on-tick="onTick(time)"></clock>
+
+        <button ng-click="format='ss'">Change Format</button>
+        <button ng-click="clock1.stop()">Stop</button>
+        <button ng-click="clock1.start()">Start</button>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="ClockComponent.js"></script>
+    <script src="HomeCtrl.js"></script>
+</body>
+</html>

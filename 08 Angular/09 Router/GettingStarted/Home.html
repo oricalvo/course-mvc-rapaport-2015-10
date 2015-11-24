@@ -1,0 +1,17 @@
+﻿<div>
+
+    <h1>Home</h1>
+
+    <div>
+        <a ui-sref=".contacts">Contacts</a>
+        <a ui-sref=".groups">Groups</a>
+    </div>
+
+    <div ui-view></div>
+
+    <ul>
+        <li ng-repeat="contact in contacts">
+            <span>{{contact.name}}</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="HomeCtrl">
+        <grid model-item="contact" model="contacts">
+            <columns>
+                <column>
+                    <title>ID</title>
+                    <content>
+                        <button>Delete</button>
+                        <span>{{contact.id}}</span>
+                    </content>
+                </column>
+
+                <column>
+                    <title>Name</title>
+                    <content>
+                        <span>{{contact.name}}</span>
+                    </content>
+                </column>
+            </columns>
+        </grid>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="GridWidget.js"></script>
+    <script src="HomeCtrl.js"></script>
+</body>
+</html>

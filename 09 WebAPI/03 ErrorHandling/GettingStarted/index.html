@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="HomeCtrl">
+        <ul>
+            <li ng-repeat="contact in contacts">
+                <span>{{contact.name}}</span>
+            </li>
+        </ul>
+
+        <button ng-click="refresh()">Refresh</button>
+
+        <input ng-model="name" /><button ng-click="add()">Add</button>
+
+        <button ng-click="signIn()">Sign In</button>
+        <button ng-click="signOut()">Sign Out</button>
+    </div>
+
+    <script src="angular.js"></script>
+    <script>
+
+        $.ajax({
+            url: "http://twitter.com/api/contact",
+            type: "GET",
+            dataType: "jsonp",
+            success: function () {
+            },
+            error: function () {
+            }
+        });
+
+        angular.module("MyApp", []).controller("HomeCtrl", function ($scope, $http) {
+            $scope.refresh = function () {
+                loadData();
+            }
+
+            $scope.add = function () {
+                if (!$scope.name) {
+                    alert("Please specify a name");
+
+                    return;
+                }
+
+                var contact = {
+                    name: $scope.name
+                };
+
+                $http.post("/api/contact", contact).then(function (res) {
+                    $scope.contacts.push(res.data);
+                }).catch(function (res) {
+                    alert("ERROR");
+                });
+            }
+
+            $scope.signIn = function () {
+                $http.post("/rpc/Account/SignIn", {
+                    userName: "ori",
+                    password: "123",
+                }).then(function (res) {
+                    alert("OK");
+                }).catch(function (res) {
+                    alert("ERROR");
+                });
+            }
+
+            $scope.signOut = function () {
+                $http.post("/rpc/Account/SignOut").then(function (res) {
+                    alert("OK");
+                }).catch(function (res) {
+                    alert("ERROR");
+                });
+            }
+
+            function loadData() {
+                $http.get("/api/contact").then(function (res) {
+                    $scope.contacts = res.data;
+                }).catch(function (res) {
+                    alert("ERROR");
+                });
+            }
+        });
+    </script>
+</body>
+</html>
